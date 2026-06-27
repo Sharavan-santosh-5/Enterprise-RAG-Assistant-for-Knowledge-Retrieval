@@ -1,22 +1,23 @@
-# Production Grade RAG Application
+# Enterprise RAG Assistant for Knowledge Retrieval
 
-A production-ready AI application designed for high-accuracy document retrieval and generation (RAG). This application is built with hybrid search, re-ranking, and strict citation enforcement to ensure enterprise-level reliability.
+An enterprise-grade Retrieval-Augmented Generation (RAG) application designed to provide intelligent access to organizational knowledge. The platform enables users to retrieve, summarize, and contextualize information from enterprise knowledge bases, support articles, technical documentation, and resolution notes using natural language queries. Built with hybrid retrieval, advanced reranking, and citation enforcement, the solution delivers accurate, context-aware, and source-backed responses for enterprise knowledge discovery.
 
 ## 🚀 Key Features
 
-*   **Hybrid Retrieval**: Combines BM25 keyword search with Vector semantic search for maximum recall.
-*   **Cross-Encoder Reranking**: Utilizes state-of-the-art re-rankers to prioritize the most relevant context.
-*   **Citation Enforcement**: Every response is grounded in provided documents with traceablity to sources.
-*   **Production Architecture**: Built with FastAPI, Dependency Injection, and a decoupled component model.
-*   **Evaluation Pipeline**: CI-gated quality checks to prevent regressions in retrieval accuracy.
+* **Enterprise Knowledge Retrieval**: Enables intelligent search across internal knowledge bases, support articles, technical documentation, and resolution notes using natural language.
+* **Hybrid Retrieval**: Combines BM25 keyword search with vector-based semantic search to maximize retrieval accuracy and recall.
+* **Cross-Encoder Reranking**: Improves response relevance by prioritizing the most contextually appropriate documents before answer generation.
+* **Citation Enforcement**: Every generated response is backed by source documents, ensuring transparency, traceability, and trust.
+* **Production-Ready Architecture**: Built with FastAPI, Dependency Injection, and a modular architecture for scalability and maintainability.
+* **Evaluation Pipeline**: Includes automated quality evaluation to continuously validate retrieval accuracy and response quality before deployment.
 
 ## 🛠️ Tech Stack
 
-*   **Framework**: FastAPI (Python 3.11)
-*   **RAG Engine**: LlamaIndex
-*   **Vector DB**: Qdrant (Local/Remote)
-*   **LLM Providers**: Ollama, OpenAI, Azure, Gemini, SageMaker
-*   **UI**: Gradio
+* **Framework**: FastAPI (Python 3.11)
+* **RAG Engine**: LlamaIndex
+* **Vector Database**: Qdrant (Local/Remote)
+* **LLM Providers**: Ollama, OpenAI, Azure, Gemini, SageMaker
+* **User Interface**: Gradio
 
 ## 🚦 Getting Started
 
@@ -29,7 +30,7 @@ poetry install --extras "ui llms-ollama embeddings-ollama vector-stores-qdrant"
 
 ### Running the Application
 
-To run the application with the default production settings:
+To launch the Enterprise RAG Assistant using the default production configuration:
 
 ```bash
 # Set profiles and start
@@ -39,14 +40,17 @@ poetry run python -m production_rag
 
 ## ⚙️ Configuration
 
-Configuration is managed via YAML profiles in the root directory:
-- `settings.yaml`: Global defaults.
-- `settings-ollama.yaml`: Configuration for Ollama local execution.
-- `settings-local.yaml`: Configuration for local LlamaCPP/HuggingFace execution.
+Configuration is managed through YAML profiles located in the project root:
+
+* `settings.yaml` – Global application configuration.
+* `settings-ollama.yaml` – Configuration for Ollama-based local LLM execution.
+* `settings-local.yaml` – Configuration for local LlamaCPP/HuggingFace execution.
+
+The configuration supports flexible customization of LLM providers, vector databases, retrieval settings, and runtime parameters for different deployment environments.
 
 ## 🧪 Evaluation
 
-Run the evaluation pipeline to verify retrieval quality:
+Run the evaluation pipeline to validate retrieval relevance, citation accuracy, and overall response quality before deployment.
 
 ```bash
 python production_rag/rag/evaluation/evaluator.py --threshold 0.7
@@ -55,4 +59,3 @@ python production_rag/rag/evaluation/evaluator.py --threshold 0.7
 ## 🛡️ License
 
 This project is licensed under the Apache-2.0 License.
-
